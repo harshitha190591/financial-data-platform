@@ -1,0 +1,13 @@
+
+    
+    
+    
+    create table "financial"."main"."daily_pnl" ("trade_date" date,"desk_id" text,"instrument" text,"net_pnl" float8,"total_trades" integer,"total_volume" integer,"_created_at" timestamp without time zone)
+  ;
+    -- dbt seed --
+    
+          COPY "financial"."main"."daily_pnl" FROM '/Users/harshasogala/financial-data-platform/transformation/financial_transforms/seeds/daily_pnl.csv' (FORMAT CSV, HEADER TRUE, DELIMITER ',')
+        
+
+;
+  

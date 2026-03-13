@@ -1,0 +1,28 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+.env
+
+# Spark
+derby.log
+metastore_db/
+spark-warehouse/
+
+# Delta Lake data (too large for GitHub)
+data/
+
+# Airflow
+orchestration/airflow.db
+orchestration/logs/
+orchestration/airflow.cfg
+
+# dbt
+transformation/financial_transforms/target/
+transformation/financial_transforms/dbt_packages/
+*.duckdb
+
+# Mac
+.DS_Store
+EOF

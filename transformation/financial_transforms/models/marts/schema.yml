@@ -1,0 +1,50 @@
+version: 2
+
+models:
+  - name: mart_loss_ratio
+    description: "Final loss ratio mart aggregated by policy type and risk tier. Used for regulatory reporting and actuarial analysis."
+    columns:
+      - name: policy_type
+        description: "Type of insurance policy"
+        tests:
+          - not_null
+      - name: risk_tier
+        description: "Risk classification based on loss ratio"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ["HIGH", "MEDIUM", "LOW"]
+      - name: total_policies
+        description: "Total number of policies in this segment"
+        tests:
+          - not_null
+      - name: avg_loss_ratio
+        description: "Average loss ratio — claims paid vs premiums collected"
+        tests:
+          - not_null
+      - name: total_net_pnl
+        description: "Net P&L after claims"
+        tests:
+          - not_null
+
+  - name: mart_trading_summary
+    description: "Final trading summary mart aggregated by desk and instrument. Used for P&L reporting and desk performance reviews."
+    columns:
+      - name: desk_id
+        description: "Trading desk identifier"
+        tests:
+          - not_null
+      - name: instrument
+        description: "Financial instrument traded"
+        tests:
+          - not_null
+      - name: total_net_pnl
+        description: "Total net P&L across all trading days"
+        tests:
+          - not_null
+      - name: performance_tier
+        description: "Performance classification based on total P&L"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ["PROFITABLE", "FLAT", "LOSS"]

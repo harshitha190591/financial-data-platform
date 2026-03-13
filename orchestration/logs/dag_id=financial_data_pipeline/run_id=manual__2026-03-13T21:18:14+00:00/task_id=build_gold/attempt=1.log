@@ -1,0 +1,27 @@
+[2026-03-13T22:26:28.826+0100] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-03-13T22:26:28.840+0100] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: financial_data_pipeline.build_gold manual__2026-03-13T21:18:14+00:00 [queued]>
+[2026-03-13T22:26:28.844+0100] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: financial_data_pipeline.build_gold manual__2026-03-13T21:18:14+00:00 [queued]>
+[2026-03-13T22:26:28.844+0100] {taskinstance.py:2306} INFO - Starting attempt 1 of 3
+[2026-03-13T22:26:28.850+0100] {taskinstance.py:2330} INFO - Executing <Task(PythonOperator): build_gold> on 2026-03-13 21:18:14+00:00
+[2026-03-13T22:26:28.856+0100] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'financial_data_pipeline', 'build_gold', 'manual__2026-03-13T21:18:14+00:00', '--job-id', '11', '--raw', '--subdir', 'DAGS_FOLDER/financial_pipeline_dag.py', '--cfg-path', '/var/folders/44/_d3gbm2s74q1sbx67v0lqn3h0000gn/T/tmp5s0la9j5']
+[2026-03-13T22:26:28.857+0100] {logging_mixin.py:188} WARNING - /Users/harshasogala/financial-data-platform/venv/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py:62 DeprecationWarning: This process (pid=67001) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-03-13T22:26:28.857+0100] {standard_task_runner.py:64} INFO - Started process 67002 to run task
+[2026-03-13T22:26:28.857+0100] {standard_task_runner.py:91} INFO - Job 11: Subtask build_gold
+[2026-03-13T22:26:28.877+0100] {task_command.py:426} INFO - Running <TaskInstance: financial_data_pipeline.build_gold manual__2026-03-13T21:18:14+00:00 [running]> on host harshas-air.home
+[2026-03-13T22:26:28.908+0100] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data-engineering' AIRFLOW_CTX_DAG_ID='financial_data_pipeline' AIRFLOW_CTX_TASK_ID='build_gold' AIRFLOW_CTX_EXECUTION_DATE='2026-03-13T21:18:14+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-03-13T21:18:14+00:00'
+[2026-03-13T22:26:28.909+0100] {taskinstance.py:430} INFO - ::endgroup::
+[2026-03-13T22:26:32.853+0100] {logging_mixin.py:188} INFO - [2026-03-13T21:18:14+00:00] Building Gold tables...
+[2026-03-13T22:26:32.854+0100] {logging_mixin.py:188} INFO - 
+── Gold: building analytical tables ──
+[2026-03-13T22:26:53.493+0100] {logging_mixin.py:188} INFO -   claims_summary: 25 rows
+[2026-03-13T22:26:58.831+0100] {logging_mixin.py:188} INFO -   daily_pnl: 218 rows
+[2026-03-13T22:27:02.990+0100] {logging_mixin.py:188} INFO -   policy_portfolio: 15 rows
+[2026-03-13T22:27:02.992+0100] {logging_mixin.py:188} INFO - 
+── Gold tables ready for analytics ──
+[2026-03-13T22:27:02.993+0100] {logging_mixin.py:188} INFO - Gold tables ready.
+[2026-03-13T22:27:02.994+0100] {python.py:237} INFO - Done. Returned value was: None
+[2026-03-13T22:27:02.995+0100] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-03-13T22:27:03.008+0100] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=financial_data_pipeline, task_id=build_gold, run_id=manual__2026-03-13T21:18:14+00:00, execution_date=20260313T211814, start_date=20260313T212628, end_date=20260313T212703
+[2026-03-13T22:27:03.068+0100] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2026-03-13T22:27:03.088+0100] {taskinstance.py:3503} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-03-13T22:27:03.089+0100] {local_task_job_runner.py:222} INFO - ::endgroup::

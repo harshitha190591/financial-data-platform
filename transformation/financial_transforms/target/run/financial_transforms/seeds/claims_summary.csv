@@ -1,0 +1,13 @@
+
+    
+    
+    
+    create table "financial"."main"."claims_summary" ("policy_type" text,"status" text,"total_claims" integer,"total_claim_amount" float8,"avg_claim_amount" float8,"total_premium_collected" float8,"loss_ratio" float8,"_created_at" timestamp without time zone)
+  ;
+    -- dbt seed --
+    
+          COPY "financial"."main"."claims_summary" FROM '/Users/harshasogala/financial-data-platform/transformation/financial_transforms/seeds/claims_summary.csv' (FORMAT CSV, HEADER TRUE, DELIMITER ',')
+        
+
+;
+  

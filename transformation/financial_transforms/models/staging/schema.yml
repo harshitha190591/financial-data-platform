@@ -1,0 +1,66 @@
+version: 2
+
+models:
+  - name: stg_claims_summary
+    description: "Cleaned and renamed claims summary from Gold layer"
+    columns:
+      - name: policy_type
+        description: "Type of insurance policy"
+        tests:
+          - not_null
+      - name: claim_status
+        description: "Current status of the claim"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ["OPEN", "IN REVIEW", "APPROVED", "REJECTED", "CLOSED"]
+      - name: total_claim_amount
+        description: "Total value of claims"
+        tests:
+          - not_null
+      - name: loss_ratio
+        description: "Ratio of claims paid to premiums collected"
+        tests:
+          - not_null
+
+  - name: stg_policy_portfolio
+    description: "Cleaned and renamed policy portfolio from Gold layer"
+    columns:
+      - name: policy_type
+        description: "Type of insurance policy"
+        tests:
+          - not_null
+      - name: policy_status
+        description: "Current status of the policy"
+        tests:
+          - not_null
+          - accepted_values:
+              values: ["ACTIVE", "EXPIRED", "CANCELLED"]
+      - name: total_policies
+        description: "Total number of policies"
+        tests:
+          - not_null
+      - name: unique_customers
+        description: "Number of unique customers"
+        tests:
+          - not_null
+
+  - name: stg_daily_pnl
+    description: "Cleaned daily P&L per desk and instrument"
+    columns:
+      - name: trade_date
+        description: "Date of the trade"
+        tests:
+          - not_null
+      - name: desk_id
+        description: "Trading desk identifier"
+        tests:
+          - not_null
+      - name: instrument
+        description: "Financial instrument traded"
+        tests:
+          - not_null
+      - name: net_pnl
+        description: "Net profit and loss for the day"
+        tests:
+          - not_null

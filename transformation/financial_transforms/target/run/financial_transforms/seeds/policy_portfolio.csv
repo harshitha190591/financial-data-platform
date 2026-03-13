@@ -1,0 +1,13 @@
+
+    
+    
+    
+    create table "financial"."main"."policy_portfolio" ("policy_type" text,"status" text,"total_policies" integer,"total_premium" float8,"avg_premium" float8,"unique_customers" integer,"_created_at" timestamp without time zone)
+  ;
+    -- dbt seed --
+    
+          COPY "financial"."main"."policy_portfolio" FROM '/Users/harshasogala/financial-data-platform/transformation/financial_transforms/seeds/policy_portfolio.csv' (FORMAT CSV, HEADER TRUE, DELIMITER ',')
+        
+
+;
+  
