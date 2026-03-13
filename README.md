@@ -46,7 +46,7 @@ Raw CSV Files
 | Transformation | dbt Core, DuckDB |
 | Data Generation | Python, Faker |
 | Testing | pytest |
-| CI/CD | GitHub Actions (coming soon) |
+| CI/CD | GitHub Actions |
 
 ---
 
